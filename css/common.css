@@ -1,6 +1,7 @@
 /* Poppins Font */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
-
+/* Hind Shiliguri Bangla Font */
+@import url("https://fonts.googleapis.com/css2?family=Hind+Siliguri&display=swap");
 /* General Styles */
 body {
   font-family: "Poppins", sans-serif;
@@ -13,4 +14,7 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.text-bangla {
+  font-family: "Hind Siliguri", sans-serif;
 }

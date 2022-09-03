@@ -62,5 +62,181 @@
       </nav>
       <!-- Navbar End -->
     </header>
+    <main class="container">
+      <div
+        class="row justify-content-center accordion mt-5 border-0 text-start g-3"
+        id="faqs"
+      >
+        <div class="accordion-item p-0 col-lg-8 text-bangla border rounded">
+          <h2 class="accordion-header m-0 border-0" id="headingOne">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseOne"
+              aria-expanded="false"
+              aria-controls="collapseOne"
+            >
+              <span>
+                <span class="text-english"><code>let</code></span
+                >,&nbsp; <span class="text-english"><code>const</code></span
+                >&nbsp;ও&nbsp; <span class="text-english"><code>var</code></span
+                >— এই তিনটি মধ্যে পার্থক্য কী?
+              </span>
+            </button>
+          </h2>
+          <div
+            id="collapseOne"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingOne"
+            data-bs-parent="#faqs"
+          >
+            <div class="accordion-body">
+              <p>
+                <span class="text-english">CSS Flexbox</span> হলো একমাত্রিক
+                (কেবল সারি বা কেবল কলাম) লে-আউট মডিউল। অন্যদিকে,
+                <span class="text-english">CSS Grid</span> হলো দ্বিমাত্রিক (একই
+                সাথে সারি ও কলাম) লে-আউট মডিউল।
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item p-0 col-lg-8 text-bangla border rounded">
+          <h2 class="accordion-header m-0 border-0" id="headingTwo">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseTwo"
+              aria-expanded="false"
+              aria-controls="collapseTwo"
+            >
+              <span
+                ><span class="text-english text-nowrap">Arrow Function</span
+                >&nbsp;ও&nbsp;
+                <span class="text-english">Regular (Non-Arrow) Function</span>—
+                এই দুইটির মধ্যে পার্থক্য কী?</span
+              >
+            </button>
+          </h2>
+          <div
+            id="collapseTwo"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingTwo"
+            data-bs-parent="#faqs"
+          >
+            <div class="accordion-body">
+              <p>
+                <span class="text-english">Bootstrap</span> একই সাথে
+                <span class="text-english">Utility</span>-ভিত্তিক ও
+                <span class="text-english">Component</span>-ভিত্তিক ফ্রন্টএন্ড
+                ফ্রেমওয়ার্ক। অন্যদিকে,
+                <span class="text-english">TailwindCSS</span> হলো কেবল
+                <span class="text-english">Utility</span>-ভিত্তিক ফ্রন্টএন্ড
+                ফ্রেমওয়ার্ক। কম্পোনেন্ট নিজে লিখে নিতে হবে বা থার্ড পার্টি
+                কম্পোনেন্ট ব্যবহার করতে হবে। তবে বুটস্ট্র্যাপের তুলনায়
+                টেইলউইন্ডে ইউটিলিটির সমাহার অনেক ব্যাপকতর।
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item p-0 col-lg-8 text-bangla border rounded">
+          <h2 class="accordion-header m-0 border-0" id="headingThree">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseThree"
+              aria-expanded="false"
+              aria-controls="collapseThree"
+            >
+              <span>
+                <span class="text-english"><code>map()</code></span
+                >,&nbsp; <span class="text-english"><code>forEach()</code></span
+                >,&nbsp; <span class="text-english"><code>filter()</code></span
+                >,&nbsp;ও,&nbsp;
+                <span class="text-english"><code>find()</code></span
+                >— এই এ্যারে প্রোটাটাইপ মেথডগুলোর মধ্যে পার্থক্য কী?
+              </span>
+            </button>
+          </h2>
+          <div
+            id="collapseThree"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingThree"
+            data-bs-parent="#faqs"
+          >
+            <div class="accordion-body">
+              <p>
+                প্রতিটা <span class="text-english">HTML Element</span> একটি
+                বক্সে মুড়োনো থাকে। সে বক্সে
+                <span class="text-english">Content</span> ঘিরে
+                <span class="text-english">Padding</span> আছে,
+                <span class="text-english">Padding</span> ঘিরে
+                <span class="text-english">Border</span> থাকে, আর
+                <span class="text-english">Border</span> ঘিরে
+                <span class="text-english">Margin</span>। এই ধারণাই
+                <span class="text-english">CSS Box Model</span>।
+              </p>
+              <p>
+                এলিমেন্টের লে-আউট ও ডিজাইনে এই বক্স মডেল একটি কেন্দ্রীয়
+                অপরিহার্য ধারণা।
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item p-0 col-lg-8 text-bangla border rounded">
+          <h2 class="accordion-header m-0 border-0" id="headingFour">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseFour"
+              aria-expanded="false"
+              aria-controls="collapseFour"
+            >
+              <span class="text-english">Template String Literal</span
+              >&nbsp;আমরা কেন ব্যবহার করবো?
+            </button>
+          </h2>
+          <div
+            id="collapseFour"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingFour"
+            data-bs-parent="#faqs"
+          >
+            <div class="accordion-body">
+              <p>
+                <span class="text-english">HTML</span>-এ প্রতিটা
+                <span class="text-english">Tag</span> হয়
+                <span class="text-english">Semantic Tag</span> অথবা
+                <span class="text-english">Non-Semantic Tag</span>।
+              </p>
+              <p>
+                <span class="text-english">Semantic Tag</span> কেবলমাত্র এর
+                নামের মাধ্যমেই এর কনটেন্টের অর্থ বা পুরো পেজের (বা কমপক্ষে
+                সিবলিং এলিমেন্ট বা এলিমেন্টদের) কনটেন্টের মাঝে নিজের কনটেন্টের
+                অর্থগত ভূমিকা
+                <span class="text-english">(Semantic Role)</span> প্রকাশ করে।
+                যেমন— <span class="text-english"><code>form</code></span> ও
+                <span class="text-english"><code>table</code></span> এইসব ট্যাগ
+                যথাক্রমে বুঝায় যে, এর কনটেন্ট একটি ফর্ম ও একটি টেবিল। আবার,
+                <span class="text-english"><code>h1</code></span> ট্যাগ বুঝায়
+                যে, এর কনটেন্ট পুরো পেজের কনটেন্টের মাঝে বা কমপক্ষে এর সিবলিং
+                এলিমেন্ট বা এলিমেন্টদের কনটেন্টদের মাঝে ১ম স্তরের শিরোনামের
+                ভূমিকা পালন করে।
+              </p>
+              <p>
+                অন্যদিকে,
+                <span class="text-english">Non-Semantic Tag</span> যেমন—
+                <span class="text-english"><code>div</code></span> এর কেবল নাম
+                থেকে এর কনটেন্টের অর্থ বা (বৃহত্তর প্রেক্ষাপটে) অর্থগত ভূমিকা
+                বুঝার উপায় নেই।
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
   </body>
 </html>
