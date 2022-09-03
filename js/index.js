@@ -67,7 +67,7 @@ async function displayCategories() {
       newsCategoriesElement.insertAdjacentHTML(
         "beforeend",
         `
-          <div class="border rounded category" data-id="${category["category_id"]}">
+          <div class="border rounded category m-2 m-lg-0" data-id="${category["category_id"]}">
             ${category["category_name"]}
           </div>
         `
@@ -136,7 +136,7 @@ function showNewsCards() {
         <div class="news-card bg-white my-3 p-4 row align-items-center" data-id=${
           news["_id"]
         }>
-          <div class="col-lg-3">
+          <div class="col-lg-3 text-center my-3 my-lg-0">
             <img class="img-fluid" src=${
               news["thumbnail_url"]
             } alt="Thumbnail"/>
@@ -177,3 +177,11 @@ function showNewsCards() {
       );
     });
 }
+
+// Handling Click on a News Card
+Array.from(document.querySelectorAll(".news-card")).forEach((newsCard) => {
+  newsCard.addEventListener("click", async function () {
+    const newsID = this.dataset.id;
+    console.log(newsID);
+  });
+});
