@@ -31,7 +31,7 @@
     <!-- Custom Javascript  -->
     <script defer src="js/index.js"></script>
   </head>
-  <body>
+  <body class="bg-light">
     <header>
       <!-- Navbar Start -->
       <nav class="navbar navbar-expand-lg py-3">
@@ -65,16 +65,39 @@
       <!-- Navbar End -->
     </header>
 
-    <main class="container my-3">
+    <section class="container my-3">
       <!-- News Categories Selection Area Start -->
       <section>
         <h4 class="mb-3">News Categories</h4>
+        <div
+          id="category-spinner"
+          class="spinner-border text-primary text-center"
+          role="status"
+        >
+          <span class="visually-hidden">Loading...</span>
+        </div>
         <section
           id="news-categories"
           class="row row-cols-auto justify-content-between"
         ></section>
       </section>
       <!-- News Categories Selection Area End -->
+    </section>
+
+    <main id="news-arena" class="container my-5">
+      <div id="news-spinner" class="text-center d-none">
+        <div class="spinner-border text-primary text-center" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+      <div
+        id="number-of-found-news"
+        class="bg-white text-black fs-6 mb-3 d-none"
+      >
+        <span></span> News Found for Category <span class="fw-bold"></span>
+      </div>
+
+      <section id="news-cards">Select a Category above to see News</section>
     </main>
 
     <!-- Modals -->
