@@ -82,6 +82,7 @@ async function displayCategories() {
         `;
   } finally {
     document.querySelector("#category-spinner").classList.add("d-none");
+    newsCardsElement.classList.remove("d-none");
   }
 }
 
