@@ -19,7 +19,7 @@ const newsDetailModal = document.querySelector("#news-detail-modal");
 //Show Network Error Modal
 function showModal(modalElement) {
   new bootstrap.Modal(modalElement, {
-    'backdrop' : 'static',
+    backdrop: "static",
   }).show();
 }
 
@@ -184,18 +184,23 @@ function showNewsCards() {
 function registerClickHandlerForANewsCard() {
   Array.from(document.querySelectorAll(".news-card")).forEach((newsCard) => {
     newsCard.addEventListener("click", async function () {
-      const newsID = this.dataset.id;
+      try {
+        const newsID = this.dataset.id;
 
-      const data = await fetchData(detailOfANewsEndpoint + newsID);
-      const news = data[0];
+        const data = await fetchData(detailOfANewsEndpoint + newsID);
+        const news = data[0];
 
-      newsDetailModal.querySelector(".news-title").textContent = news["title"];
-      newsDetailModal.querySelector(".news-image").src = news["image_url"];
-      newsDetailModal.querySelector(".news-detail").textContent =
-        news["details"];
+        newsDetailModal.querySelector(".news-title").textContent =
+          news["title"];
+        newsDetailModal.querySelector(".news-image").src = news["image_url"];
+        newsDetailModal.querySelector(".news-detail").textContent =
+          news["details"];
 
-      showModal(newsDetailModal);
-      console.log(news);
+        showModal(newsDetailModal);
+        console.log(news);
+      } catch {
+        return;
+      }
     });
   });
 }
