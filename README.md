@@ -1,3 +1,6 @@
+#This project was assigned to me as the Final Project of Milestone-6 at Complete Web Development Course by Programming Hero.
+
+
 # news-portal-assignemnt
 Please create yoru private repo 
 ## [https://classroom.github.com/a/PZ8KfL5q](https://classroom.github.com/a/PZ8KfL5q)
