@@ -13,9 +13,12 @@ const numberOfFoundNewsElement =
 const foundNewsInCategoryElement =
   foundNumberAndCategoryElement.querySelector("span:nth-child(2)");
 
+const networkErrorModal = document.querySelector("#network-error-modal");
+const newsDetailModal = document.querySelector("#news-detail-modal");
+
 //Show Network Error Modal
-function showNetworkErrorModal() {
-  new bootstrap.Modal("#network-error-modal").show();
+function showModal(modalElement) {
+  new bootstrap.Modal(modalElement).show();
 }
 
 // REST API Endpoints
@@ -36,13 +39,10 @@ async function fetchData(url) {
       throw new Error("Response Not OK");
     }
     const responseBody = await response.json();
-    // if (!responseBody["status"]) {
-    //   throw new Error("Status False");
-    // }
     return responseBody["data"];
   } catch (error) {
     console.log(error);
-    showNetworkErrorModal();
+    showModal(networkErrorModal);
     throw error;
   }
 }
@@ -113,7 +113,6 @@ function registerClickHandlerForCategories() {
         numberOfFoundNewsElement.textContent = arrayOfNews.length || "NO";
         foundNewsInCategoryElement.textContent = this.textContent;
       } catch (error) {
-        console.log(error);
         newsCardsElement.innerHTML = `
           <p class="text-danger text-center fw-bold fs-4">Network Error while Loading News</p>
         `;
@@ -187,6 +186,11 @@ function registerClickHandlerForANewsCard() {
 
       const data = await fetchData(detailOfANewsEndpoint + newsID);
       const news = data[0];
+
+      newsDetailModal.querySelector(".modal-title").textContent = news["title"];
+      
+
+      showModal(newsDetailModal);
       console.log(news);
     });
   });
