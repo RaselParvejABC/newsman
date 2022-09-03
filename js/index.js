@@ -111,7 +111,6 @@ function registerClickHandlerForCategories() {
         // Setting Number of Found News in the Selected Category
         numberOfFoundNewsElement.textContent = arrayOfNews.length || "NO";
         foundNewsInCategoryElement.textContent = this.textContent;
-        showNewsCards();
       } catch (error) {
         console.log(error);
         newsCardsElement.innerHTML = `
@@ -121,6 +120,7 @@ function registerClickHandlerForCategories() {
       } finally {
         newsSpinner.classList.add("d-none");
       }
+      showNewsCards();
     });
   });
 }
@@ -139,18 +139,31 @@ function showNewsCards() {
           <div class="col-lg-10">
             <h5 class="fw-bold">${news["title"]}</h5>
             <p class="text-secondary">
-              ${news["details"].replaceAll(/\n/g, "<br/><br/>")}
+              ${news["details"].replaceAll(/\n/g, "<br/><br/><br/>")}
             </p>
-            <div class="row justify-content-between">
-              <div class="row">
-                
+            <div class="row justify-content-between align-items-end">
+              <div class="col-9 row justify-content-start align-items-center g-0">
+                <div class="col-auto p-0">
+                  <img class="rounded-circle img-thumbnail" src=${
+                    news["author"]["img"]
+                  } style="width: 4rem;"/>
+                </div>
+                <div class="col-auto ps-2">
+                  <span>${news["author"]["name"] ?? "Author Name Unavailable"}
+                  <br/>
+                  </span>
+                  <span>${
+                    news["author"]["published_date"]?.substring(0, 11) ??
+                    "Publish Time Not Available"
+                  }</span>
+                </div>
               </div>
-              <div>
+              <div class="col-3 text-end">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
                   <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
                   <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
                 </svg>
-                <span>${news["total_view"]}</span>
+                <span>${news["total_view"] ?? "Read Count Unavailable"}</span>
               </div>
             </div>
           </div>
