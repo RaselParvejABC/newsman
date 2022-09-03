@@ -1,5 +1,6 @@
 //States
 let arrayOfNews = [];
+let categories = [];
 
 // Document Queries
 const newsArena = document.querySelector("main#news-arena");
@@ -64,13 +65,15 @@ async function displayCategories() {
   );
   newsCategoriesElement.innerHTML = "";
   try {
-    const categories = await loadCategories();
+    categories = await loadCategories();
     categories.forEach((category) => {
       newsCategoriesElement.insertAdjacentHTML(
         "beforeend",
         `
-          <div class="border rounded category m-2 m-lg-0" data-id="${category["category_id"]}">
-            ${category["category_name"]}
+          <div>
+            <div class="border rounded category p-2 m-2 m-lg-0" data-id="${category["category_id"]}">
+              ${category["category_name"]}
+            </div>
           </div>
         `
       );
@@ -155,9 +158,10 @@ function showNewsCards() {
                   } style="width: 4rem;"/>
                 </div>
                 <div class="col-auto ps-2">
-                  <span>${news["author"]["name"] ?? "Author Name Unavailable"}
+                  <span>${
+                    news["author"]["name"] ?? "Author Name Unavailable"
+                  }</span>
                   <br/>
-                  </span>
                   <span>${
                     news["author"]["published_date"]?.substring(0, 11) ??
                     "Publish Time Not Available"
@@ -195,9 +199,39 @@ function registerClickHandlerForANewsCard() {
         newsDetailModal.querySelector(".news-image").src = news["image_url"];
         newsDetailModal.querySelector(".news-detail").textContent =
           news["details"];
+        newsDetailModal.querySelector(".news-author-image").src =
+          news["author"]["img"];
+        newsDetailModal.querySelector(".news-author-name").textContent =
+          news["author"]["name"] ?? "Author Name Unavailable";
+        newsDetailModal.querySelector(".news-publish-time").textContent =
+          news["author"]["published_date"]?.substring(0, 11) ??
+          "Publish Time Not Available";
+
+        newsDetailModal.querySelector(".news-read-count").textContent =
+          news["total_view"] ?? "Not Available";
+        newsDetailModal.querySelector(".news-rating").textContent =
+          news["rating"]["number"] ?? "Not Available";
+        newsDetailModal.querySelector(".news-badge").textContent =
+          news["rating"]["badge"] ?? "Not Available";
+        newsDetailModal.querySelector(".news-category").textContent =
+          categories[Number(news["category_id"]) - 1]["category_name"];
+
+        if (news["others_info"]["is_todays_pick"]) {
+          newsDetailModal
+            .querySelector(".todays-pick")
+            .classList.remove("d-none");
+        } else {
+          newsDetailModal.querySelector(".todays-pick").classList.add("d-none");
+        }
+
+        if (news["others_info"]["is_trending"]) {
+          newsDetailModal.querySelector(".trending").classList.remove("d-none");
+        } else {
+          newsDetailModal.querySelector(".trending").classList.add("d-none");
+        }
 
         showModal(newsDetailModal);
-        console.log(news);
+        //console.log(news);
       } catch {
         return;
       }
