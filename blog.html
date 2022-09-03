@@ -108,7 +108,8 @@
                 <span class="text-english"><code>var</code>&nbsp;</span> দিয়ে
                 ডিক্লেয়ার করা ভ্যারিয়েবলের
                 <span class="text-english"
-                  >Declaration (Not Assignment)&nbsp;</span
+                  >Declaration (But, Not the Initialization
+                  Assignment)&nbsp;</span
                 >
                 নিজ স্কোপের শুরুতে
                 <span class="text-english">Hoisted Up&nbsp;</span> হয়ে যায়।
@@ -118,8 +119,8 @@
                 ডিক্লেয়ার করা ভ্যারিয়েবলের
                 <span class="text-english">Declaration&nbsp;</span> বা
                 <span class="text-english">Assignment&nbsp;</span>
-                কোনোটাই <span class="text-english">Hoisted Up&nbsp;</span> হয়
-                না।
+                কোনোটাই নিজ স্কোপে
+                <span class="text-english">Hoisted Up&nbsp;</span> হয় না।
               </p>
               <p>
                 আবার একই ফাংশন স্কোপে একই আইডেন্টিফায়ার দিয়ে
@@ -131,6 +132,27 @@
                 <span class="text-english"><code>const</code>&nbsp;</span>
                 ভ্যারিয়েবল রি-ডিক্লেয়ার করলে জাভাস্ক্রিপ্ট সেটাকে সিনট্যাক্স এরর
                 বলে ঘোষণা করে।
+              </p>
+              <p>
+                <span class="text-english"><code>var</code>&nbsp;</span> ও
+                <span class="text-english"><code>let</code>&nbsp;</span> দিয়ে
+                ডিক্লেয়ার করা ভ্যারিয়েবলের মান রানটাইমে যতবার খুশি বা দরকার
+                চেঞ্জ/রি-এসাইন করা যায়। অন্যদিকে,
+                <span class="text-english"><code>const</code>&nbsp;</span> দিয়ে
+                ডিক্লেয়ার করা ভ্যারিয়েবলের মান ডিক্লারেশন স্টেটমেন্টের পরে
+                রি-এসাইন করা সিনট্যাক্স এরর।
+              </p>
+              <p>
+                <span class="text-english"><code>var</code>&nbsp;</span> ও
+                <span class="text-english"><code>let</code>&nbsp;</span> দিয়ে
+                ডিক্লেয়ার করা ভ্যারিয়েবলকে এক্সপ্লিসিটলি ইনিশিয়ালাইজ না করলে,
+                এদের ইমপ্লিসিট মান হয়
+                <span class="text-english"><code>undefined</code></span
+                >। অন্যদিকে,
+                <span class="text-english"><code>const</code>&nbsp;</span> দিয়ে
+                ডিক্লেয়ার করা ভ্যারিয়েবলকে এক্সপ্লিসিটলি ইনিশিয়ালাইজ না করলে, তা
+                সিনট্যাক্স এরর, কারণ ডিক্লারেশন স্টেটমেন্টের পরে এসাইন করার
+                সুযোগ নেই।
               </p>
             </div>
           </div>
@@ -161,15 +183,8 @@
           >
             <div class="accordion-body">
               <p>
-                <span class="text-english">Bootstrap</span> একই সাথে
-                <span class="text-english">Utility</span>-ভিত্তিক ও
-                <span class="text-english">Component</span>-ভিত্তিক ফ্রন্টএন্ড
-                ফ্রেমওয়ার্ক। অন্যদিকে,
-                <span class="text-english">TailwindCSS</span> হলো কেবল
-                <span class="text-english">Utility</span>-ভিত্তিক ফ্রন্টএন্ড
-                ফ্রেমওয়ার্ক। কম্পোনেন্ট নিজে লিখে নিতে হবে বা থার্ড পার্টি
-                কম্পোনেন্ট ব্যবহার করতে হবে। তবে বুটস্ট্র্যাপের তুলনায়
-                টেইলউইন্ডে ইউটিলিটির সমাহার অনেক ব্যাপকতর।
+                <span class="text-english">Regular Function</span>-এর ভিতরে
+                <span class="text-english">Regular Function</span>
               </p>
             </div>
           </div>
