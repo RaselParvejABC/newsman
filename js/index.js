@@ -176,12 +176,18 @@ function showNewsCards() {
       `
       );
     });
+  registerClickHandlerForANewsCard();
 }
 
 // Handling Click on a News Card
-Array.from(document.querySelectorAll(".news-card")).forEach((newsCard) => {
-  newsCard.addEventListener("click", async function () {
-    const newsID = this.dataset.id;
-    console.log(newsID);
+function registerClickHandlerForANewsCard() {
+  Array.from(document.querySelectorAll(".news-card")).forEach((newsCard) => {
+    newsCard.addEventListener("click", async function () {
+      const newsID = this.dataset.id;
+
+      const data = await fetchData(detailOfANewsEndpoint + newsID);
+      const news = data[0];
+      console.log(news);
+    });
   });
-});
+}
