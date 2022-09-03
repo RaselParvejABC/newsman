@@ -183,8 +183,54 @@
           >
             <div class="accordion-body">
               <p>
-                <span class="text-english">Regular Function</span>-এর ভিতরে
-                <span class="text-english">Regular Function</span>
+                <span class="text-english">Regular Function&nbsp;</span> যখন
+                <span class="text-english">Function Declaration&nbsp;</span>,
+                তখন তা <span class="text-english">Named Function&nbsp;</span>।
+                <span class="text-english">Regular Function&nbsp;</span> যখন
+                <span class="text-english">Function Expression&nbsp;</span>, তখন
+                তা <span class="text-english">Named Function&nbsp;</span> বা
+                <span class="text-english">Anonymous Function&nbsp;</span>
+                দুইটাই হতে পারে। অন্যদিকে,
+                <span class="text-english">Arrow Function&nbsp;</span> সদা
+                <span class="text-english">Anonymous&nbsp;</span>।
+              </p>
+              <p>
+                <span class="text-english">Regular Function</span>-এর তুলনায়
+                <span class="text-english">Arrow Function</span>-এর সিনট্যাক্সে
+                বাঁচালতা কম (মানে কী-ওয়ার্ড বা টোকেনের ব্যবহার কম)। যেমন—
+                <span class="text-english"><code>function</code>&nbsp;</span>
+                কীওয়ার্ড লিখতে হয় না। প্যারামিটার একটা হলে প্যারেন্থিসিস দরকার
+                হয় না। আবার কখনো কখনো (কখন? সবাই জানে!) যে ফাংশন বডির ব্র্যাসেস
+                ও বডির ভেতরে
+                <span class="text-english"><code>return</code>&nbsp;</span>
+                কীওয়ার্ড বাদেই ভ্যালু রিটার্ন করা যায়, তা কি ভুলা যায়?
+              </p>
+              <p>
+                <span class="text-english">Regular Function&nbsp;</span> প্রতিটি
+                ইনভোকেশনে ইনভোকেশনের ধরণ অনুযায়ী নিজের ভিতরে
+                <span class="text-english"><code>this</code>&nbsp;</span>
+                কীওয়ার্ডের নিজস্ব মান তৈরি করে। অন্যদিকে,
+                <span class="text-english">Arrow Function&nbsp;</span> তা করে
+                না— সে সবসময় প্যারেন্ট লেক্সিক্যাল কনটেক্সটের
+                <span class="text-english"><code>this</code></span
+                >-এর মান ধরে রাখে।
+              </p>
+              <p>
+                নিজস্ব
+                <span class="text-english"><code>this</code>&nbsp;</span> তৈরি
+                না করার কারণে
+                <span class="text-english">Arrow Function&nbsp;</span> কখনো
+                <span class="text-english">Object Constructor&nbsp;</span>
+                হিসেবে ব্যবহার করা যায় না।
+              </p>
+              <p>
+                <span class="text-english">Regular Function</span>-এর সাথে
+                আরেকটা বৈসাদৃশ্য—
+                <span class="text-english">Arrow Function</span>-এর ভেতরে
+                <span class="text-english"><code>arguments</code>&nbsp;</span>
+                বা
+                <span class="text-english"><code>super</code></span
+                >-এর নিজস্ব বাইন্ডিং নেই।
               </p>
             </div>
           </div>
