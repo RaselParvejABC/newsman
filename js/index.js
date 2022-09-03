@@ -1,3 +1,6 @@
+//States
+let arrayOfNews = [];
+
 // Document Queries
 const newsArena = document.querySelector("main#news-arena");
 const newsSpinner = newsArena.querySelector("div#news-spinner");
@@ -33,9 +36,9 @@ async function fetchData(url) {
       throw new Error("Response Not OK");
     }
     const responseBody = await response.json();
-    if (!responseBody["status"]) {
-      throw new Error("Status False");
-    }
+    // if (!responseBody["status"]) {
+    //   throw new Error("Status False");
+    // }
     return responseBody["data"];
   } catch (error) {
     console.log(error);
@@ -94,23 +97,29 @@ function registerClickHandlerForCategories() {
   categoryElements.forEach((categoryElement) => {
     categoryElement.addEventListener("click", async function () {
       try {
-        newsSpinner.classList.toggle("d-none");
-        foundNumberAndCategoryElement.classList.toggle("d-none");
-        newsCardsElement.classList.toggle("d-none");
+        newsSpinner.classList.remove("d-none");
+        foundNumberAndCategoryElement.classList.add("d-none");
+        newsCardsElement.innerHTML = "";
 
         const categoryID = this.dataset.id;
-        const arrayOfNews = await fetchData(
+        arrayOfNews = await fetchData(
           `${allNewsOfACategoryEndpoint}${categoryID}`
         );
         console.log(arrayOfNews);
         // After Data Received
-        newsSpinner.classList.toggle("d-none");
-        foundNumberAndCategoryElement.classList.toggle("d-none");
-        newsCardsElement.classList.toggle("d-none");
+
+        foundNumberAndCategoryElement.classList.remove("d-none");
         // Setting Number of Found News in the Selected Category
-        numberOfFoundNewsElement.textContent = arrayOfNews.length && "NO";
+        numberOfFoundNewsElement.textContent = arrayOfNews.length || "NO";
         foundNewsInCategoryElement.textContent = this.textContent;
-      } catch (error) {}
+      } catch {
+        newsCardsElement.innerHTML = `
+          <p class="text-danger text-center fw-bold fs-4">Network Error while Loading News</p>
+        `;
+        return;
+      } finally {
+        newsSpinner.classList.add("d-none");
+      }
     });
   });
 }
