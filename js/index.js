@@ -133,10 +133,12 @@ function showNewsCards() {
         <div class="news-card bg-white my-3 p-4 row align-items-center" data-id=${
           news["_id"]
         }>
-          <div class="col-lg-2">
-            <img class="w-100" src=${news["thumbnail_url"]} alt="Thumbnail"/>
+          <div class="col-lg-3">
+            <img class="img-fluid" src=${
+              news["thumbnail_url"]
+            } alt="Thumbnail"/>
           </div>
-          <div class="col-lg-10">
+          <div class="col-lg-9">
             <h5 class="fw-bold">${news["title"]}</h5>
             <p class="text-secondary">
               ${news["details"].replaceAll(/\n/g, "<br/><br/><br/>")}
