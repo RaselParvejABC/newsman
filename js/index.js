@@ -18,7 +18,9 @@ const newsDetailModal = document.querySelector("#news-detail-modal");
 
 //Show Network Error Modal
 function showModal(modalElement) {
-  new bootstrap.Modal(modalElement).show();
+  new bootstrap.Modal(modalElement, {
+    'backdrop' : 'static',
+  }).show();
 }
 
 // REST API Endpoints
@@ -187,8 +189,10 @@ function registerClickHandlerForANewsCard() {
       const data = await fetchData(detailOfANewsEndpoint + newsID);
       const news = data[0];
 
-      newsDetailModal.querySelector(".modal-title").textContent = news["title"];
-      
+      newsDetailModal.querySelector(".news-title").textContent = news["title"];
+      newsDetailModal.querySelector(".news-image").src = news["image_url"];
+      newsDetailModal.querySelector(".news-detail").textContent =
+        news["details"];
 
       showModal(newsDetailModal);
       console.log(news);
