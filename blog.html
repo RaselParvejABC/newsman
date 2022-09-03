@@ -249,7 +249,7 @@
                 <span class="text-english"><code>map()</code></span
                 >,&nbsp; <span class="text-english"><code>forEach()</code></span
                 >,&nbsp; <span class="text-english"><code>filter()</code></span
-                >,&nbsp;ও,&nbsp;
+                >&nbsp;ও&nbsp;
                 <span class="text-english"><code>find()</code></span
                 >— এই এ্যারে প্রোটাটাইপ মেথডগুলোর মধ্যে পার্থক্য কী?
               </span>
@@ -263,19 +263,57 @@
           >
             <div class="accordion-body">
               <p>
-                প্রতিটা <span class="text-english">HTML Element</span> একটি
-                বক্সে মুড়োনো থাকে। সে বক্সে
-                <span class="text-english">Content</span> ঘিরে
-                <span class="text-english">Padding</span> আছে,
-                <span class="text-english">Padding</span> ঘিরে
-                <span class="text-english">Border</span> থাকে, আর
-                <span class="text-english">Border</span> ঘিরে
-                <span class="text-english">Margin</span>। এই ধারণাই
-                <span class="text-english">CSS Box Model</span>।
+                এই চারটি মেথডের প্রতিটিই আর্গুমেন্ট হিসেবে একটি করে কলব্যাক
+                ফাংশন নেয়।
               </p>
               <p>
-                এলিমেন্টের লে-আউট ও ডিজাইনে এই বক্স মডেল একটি কেন্দ্রীয়
-                অপরিহার্য ধারণা।
+                <span class="text-english"><code>map()</code></span
+                >,&nbsp; <span class="text-english"><code>forEach()</code></span
+                >&nbsp;ও&nbsp;
+                <span class="text-english"><code>filter()</code></span> মেথড
+                তিনটির প্রত্যেকে প্রদত্ত কলব্যাক ফাংশনটিকে ইনভোকিং এ্যারের
+                প্রতিটি (ডিলিটেড বা কখনোই এসাইন করা হয়নি, এমন বাদে) ইলিমেন্টের
+                জন্য একবার করে কল করে। অন্যদিকে,
+                <span class="text-english"><code>find()</code></span> মেথড
+                প্রতিটি ইলিমেন্টের জন্য কলব্যাককে ইনভোক করার আগেই রিটার্ন করতে
+                পারে।
+              </p>
+              <p>
+                <span class="text-english"><code>map()</code></span
+                >&nbsp; মেথড প্রদত্ত কলব্যাকের রিটার্ন ভ্যালুর মাধ্যমে ইনভোকিং
+                এ্যারের প্রতিটি এলিমেন্টকে অন্য ভ্যালুতে পরিণত করে এবং নতুন
+                ভ্যালুগুলোকে যথাক্রমে এ্যারে হিসেবে রিটার্ন করে।
+              </p>
+              <p>
+                <span class="text-english"><code>forEach()</code></span
+                >&nbsp; মেথড প্রদত্ত কলব্যাকের মাধ্যমে ইনভোকিং এ্যারের প্রতিটি
+                এলিমেন্টের প্রেক্ষিতে কোনো এক্‌শন সম্পন্ন করে। কিন্তু কলব্যাকের
+                রিটার্ন ভ্যালু ইগনোর করে এবং নিজেও কিছু রিটার্ন করে না (মানে,
+                <span class="text-english"><code>undefined</code></span
+                >&nbsp; রিটার্ন করে)।
+              </p>
+              <p>
+                <span class="text-english"><code>filter()</code></span
+                >&nbsp; মেথড প্রদত্ত কলব্যাককে ইনভোকিং এ্যারের প্রতিটি
+                এলিমেন্টের জন্য টেস্টিং ফাংশন হিসেবে ব্যবহার করে। এই মেথড
+                কলব্যাকের রিটার্ন ভ্যালুকে
+                <span class="text-english">truthy/falsy</span> দৃষ্টিতে বিচার
+                করে এবং ইনভোকিং এ্যারের যেসকল এলিমেন্টের জন্য কলব্যাক থেকে
+                <span class="text-english">truthy</span> ভ্যালু রিটার্ন পায়,
+                সেসকল এলিমেন্টগুলোকে যথাক্রমে একটি এ্যারেতে রিটার্ন করে।
+              </p>
+              <p>
+                <span class="text-english"><code>find()</code></span
+                >&nbsp; মেথড
+                <span class="text-english"><code>filter()</code></span
+                >&nbsp; মেথডের মতই শুরু করে। কিন্তু প্রথম যে এলিমেন্টের জন্য
+                কলব্যাক থেকে <span class="text-english">truthy</span> ভ্যালু
+                রিটার্ন পায়, সেই এলিমেন্টকে রিটার্ন করেই থেমে যায়,
+                <span class="text-english"><code>filter()</code></span
+                >&nbsp; মেথডের মত আর সামনে আগায় না। অথবা সব এলিমেন্ট ঘুরেও অমন
+                এলিমেন্ট না পেলে
+                <span class="text-english"><code>undefined</code></span
+                >&nbsp; রিটার্ন করে।
               </p>
             </div>
           </div>
