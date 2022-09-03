@@ -22,10 +22,14 @@
 
     <!-- Bootstrap JS -->
     <script
+      defer
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
       crossorigin="anonymous"
     ></script>
+
+    <!-- Custom Javascript  -->
+    <script defer src="js/index.js"></script>
   </head>
   <body>
     <header>
@@ -59,6 +63,36 @@
         </div>
       </nav>
       <!-- Navbar End -->
+
+      <!-- News Categories Selection Area Start -->
+
+      <!-- News Categories Selection Area End -->
     </header>
+
+    <!-- Modals -->
+
+    <!-- Network Error Modal Start -->
+    <div id="network-error-modal" class="modal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title fw-bold text-danger">Network Error</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p class="text-info fw-bold">
+              Please Check Your Internet Connection and Reload.
+            </p>
+            <p>See the Web Console for Technical Details of the Error.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Network Error Modal End -->
   </body>
 </html>
