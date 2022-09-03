@@ -105,14 +105,15 @@ function registerClickHandlerForCategories() {
         arrayOfNews = await fetchData(
           `${allNewsOfACategoryEndpoint}${categoryID}`
         );
-        console.log(arrayOfNews);
         // After Data Received
 
         foundNumberAndCategoryElement.classList.remove("d-none");
         // Setting Number of Found News in the Selected Category
         numberOfFoundNewsElement.textContent = arrayOfNews.length || "NO";
         foundNewsInCategoryElement.textContent = this.textContent;
-      } catch {
+        showNewsCards();
+      } catch (error) {
+        console.log(error);
         newsCardsElement.innerHTML = `
           <p class="text-danger text-center fw-bold fs-4">Network Error while Loading News</p>
         `;
@@ -121,5 +122,28 @@ function registerClickHandlerForCategories() {
         newsSpinner.classList.add("d-none");
       }
     });
+  });
+}
+
+function showNewsCards() {
+  arrayOfNews.forEach((news) => {
+    newsCardsElement.insertAdjacentHTML(
+      "beforeend",
+      `
+        <div class="news-card bg-white my-3 p-4 row align-items-center" data-id=${
+          news["_id"]
+        }>
+          <div class="col-lg-2">
+            <img class="w-100" src=${news["thumbnail_url"]} alt="Thumbnail"/>
+          </div>
+          <div class="col-lg-10">
+            <h5 class="fw-bold">${news["title"]}</h5>
+            <p class="text-secondary">
+              ${news["details"].replaceAll(/\n/g, "<br />")}
+            </p>
+          </div>
+        </div>
+      `
+    );
   });
 }
