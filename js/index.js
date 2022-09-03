@@ -127,10 +127,12 @@ function registerClickHandlerForCategories() {
 }
 
 function showNewsCards() {
-  arrayOfNews.forEach((news) => {
-    newsCardsElement.insertAdjacentHTML(
-      "beforeend",
-      `
+  arrayOfNews
+    .sort((a, b) => Number(b["total_view"]) - Number(a["total_view"]))
+    .forEach((news) => {
+      newsCardsElement.insertAdjacentHTML(
+        "beforeend",
+        `
         <div class="news-card bg-white my-3 p-4 row align-items-center" data-id=${
           news["_id"]
         }>
@@ -172,6 +174,6 @@ function showNewsCards() {
           </div>
         </div>
       `
-    );
-  });
+      );
+    });
 }
