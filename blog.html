@@ -93,10 +93,44 @@
           >
             <div class="accordion-body">
               <p>
-                <span class="text-english">CSS Flexbox</span> হলো একমাত্রিক
-                (কেবল সারি বা কেবল কলাম) লে-আউট মডিউল। অন্যদিকে,
-                <span class="text-english">CSS Grid</span> হলো দ্বিমাত্রিক (একই
-                সাথে সারি ও কলাম) লে-আউট মডিউল।
+                <span class="text-english"><code>var</code>&nbsp;</span> দিয়ে
+                ডিক্লেয়ার করা ভ্যারিয়েবল হলো
+                <span class="text-english">Function-Scoped&nbsp;</span>(বা,
+                <span class="text-english">Global Context</span>-এ
+                <span class="text-english">Global-Scoped&nbsp;</span>)।
+                অন্যদিকে,
+                <span class="text-english"><code>let</code>&nbsp;</span> ও
+                <span class="text-english"><code>const</code>&nbsp;</span> দিয়ে
+                ডিক্লেয়ার করা ভ্যারিয়েবল
+                <span class="text-english">Block-Scoped</span>।
+              </p>
+              <p>
+                <span class="text-english"><code>var</code>&nbsp;</span> দিয়ে
+                ডিক্লেয়ার করা ভ্যারিয়েবলের
+                <span class="text-english"
+                  >Declaration (Not Assignment)&nbsp;</span
+                >
+                নিজ স্কোপের শুরুতে
+                <span class="text-english">Hoisted Up&nbsp;</span> হয়ে যায়।
+                অন্যদিকে,
+                <span class="text-english"><code>let</code>&nbsp;</span> ও
+                <span class="text-english"><code>const</code>&nbsp;</span> দিয়ে
+                ডিক্লেয়ার করা ভ্যারিয়েবলের
+                <span class="text-english">Declaration&nbsp;</span> বা
+                <span class="text-english">Assignment&nbsp;</span>
+                কোনোটাই <span class="text-english">Hoisted Up&nbsp;</span> হয়
+                না।
+              </p>
+              <p>
+                আবার একই স্কোপে একই আইডেন্টিফায়ার দিয়ে
+                <span class="text-english"><code>var</code>&nbsp;</span>
+                ভ্যারিয়েবল রি-ডিক্লেয়ার করলে জাভাস্ক্রিপ্ট কিছু মনে করে না, কেবল
+                ইগনোর করে। রি-ডিক্লেয়ারকে আগের ভ্যারিয়েবলের নিছক রেফারেন্স
+                হিসেবে ধরে নেয়। অন্যদিকে, আবার একই স্কোপে একই আইডেন্টিফায়ার দিয়ে
+                <span class="text-english"><code>let</code>&nbsp;</span> ও
+                <span class="text-english"><code>const</code>&nbsp;</span>
+                ভ্যারিয়েবল রি-ডিক্লেয়ার করলে জাভাস্ক্রিপ্ট সেটাকে সিনট্যাক্স এরর
+                বলে ঘোষণা করে।
               </p>
             </div>
           </div>
